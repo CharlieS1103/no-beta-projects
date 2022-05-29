@@ -1,0 +1,28 @@
+
+  {
+  "manifest_version": 3,
+  "name": "No More Beta Projects",
+  "description": "Make githubs project button not go to beta project directory",
+  "version": "1.0",
+  "icons": {
+    "16": "images/icon-16.png"
+  },
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "images/icon-16.png"
+    }
+  },
+   "content_scripts": [
+        {
+        "matches": [
+            "https://github.com/*/*"
+            ],
+        "js": ["content.js"],
+        "run_at": "document_end"    // Pay attention to this line
+        }
+    ], 
+  "permissions": ["scripting", "activeTab", "commands"]
+}
